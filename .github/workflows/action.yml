@@ -20,15 +20,14 @@ jobs:
     - name: Install Unity Version Manager
       run: pip install uvm
     - name: Clone Repository
-      run: |
-        git clone ${{ secrets.REPOSITORY_URL }}
-        cd ${{ secrets.REPOSITORY_NAME }}
+      run: git clone ${{ secrets.REPOSITORY_URL }}
     - name: Set Version
       run: |
         cd ${{ secrets.REPOSITORY_NAME }}
         uvm build setup "./ProjectSettings/ProjectSettings.asset"
     - name: Commit Changes
       run: |
+        cd ${{ secrets.REPOSITORY_NAME }}
         git add "./ProjectSettings/ProjectSettings.asset"
         git commit --allow-empty -m "Set Version"
         git push
