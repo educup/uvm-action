@@ -1,6 +1,6 @@
 name: action
 on:
-  workflow_dispatch:
+  workflow_dispatch: main
 jobs:
   action:
     runs-on: ubuntu-latest
@@ -22,6 +22,7 @@ jobs:
     - name: Clone Repository
       run: |
         git clone ${{ secrets.REPOSITORY_URL }}
+        ls
         cd ${{ secrets.REPOSITORY_NAME }}
     - name: Set Version
       run: uvm build setup
