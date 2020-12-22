@@ -30,8 +30,10 @@ jobs:
     - name: Set Version
       env:
         REPOSITORY_NAME: ${{ secrets.REPOSITORY_NAME }}
+        REPOSITORY_BRANCH: ${{ secrets.REPOSITORY_BRANCH }}
       run: |
         cd "$REPOSITORY_NAME"
+        git checkout "$REPOSITORY_BRANCH"
         uvm build setup "./ProjectSettings/ProjectSettings.asset"
     - name: Commit Changes
       env:
