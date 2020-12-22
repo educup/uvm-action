@@ -36,9 +36,10 @@ jobs:
     - name: Commit Changes
       env:
         REPOSITORY_NAME: ${{ secrets.REPOSITORY_NAME }}
+        REPOSITORY_BRANCH: ${{ secrets.REPOSITORY_BRANCH }}
       run: |
         cd "$REPOSITORY_NAME"
-        git checkout main
+        git checkout "$REPOSITORY_BRANCH"
         git add "./ProjectSettings/ProjectSettings.asset"
         git commit --allow-empty -m "Set Version"
-        git push origin main
+        git push origin "$REPOSITORY_BRANCH"
