@@ -1,6 +1,7 @@
 name: action
 on:
   workflow_dispatch:
+  repository_dispatch:
 jobs:
   action:
     runs-on: ubuntu-latest
