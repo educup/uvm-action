@@ -22,10 +22,11 @@ jobs:
     - name: Clone Repository
       run: |
         git clone ${{ secrets.REPOSITORY_URL }}
-        ls
         cd ${{ secrets.REPOSITORY_NAME }}
     - name: Set Version
-      run: uvm build setup "./ProjectSettings/ProjectSettings.asset"
+      run: |
+        ls
+        uvm build setup "./ProjectSettings/ProjectSettings.asset"
     - name: Commit Changes
       run: |
         git add "./ProjectSettings/ProjectSettings.asset"
