@@ -25,7 +25,7 @@ jobs:
         ls
         cd ${{ secrets.REPOSITORY_NAME }}
     - name: Set Version
-      run: uvm build setup
+      run: uvm build setup "./ProjectSettings/ProjectSettings.asset"
     - name: Commit Changes
       run: |
         git add "./ProjectSettings/ProjectSettings.asset"
